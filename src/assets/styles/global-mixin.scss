@@ -1,0 +1,59 @@
+/// 加载字体
+///
+/// @param $name - 字体文件名，也是字体名
+/// @param $ext - 字体文件后缀名，默认不传是.woff2
+@mixin load-font($name, $ext: '.woff2') {
+  @font-face {
+    font-family: '#{$name}';
+    src: url('../font/#{$name}#{$ext}');
+    font-style: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    font-display: swap;
+  }
+}
+
+/// img图标
+///
+@mixin img-icon {
+  width: 1em;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+/// 水平垂直居中
+///
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/// 单行溢出显示省略号
+///
+@mixin single-line-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+}
+
+/// 多行溢出显示省略号
+///
+/// @param $n - 行数
+@mixin multi-line-ellipsis($n) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: #{$n};
+  line-clamp: #{$n};
+  overflow: hidden;
+  word-break: break-all;
+}
+
+/// 垂直排列并居中
+///
+@mixin column-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
